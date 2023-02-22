@@ -3,7 +3,6 @@
 
 int main(int argc, char *argv[])
 {
-    // Server variables
     int err, cSocket, gameNum, received = 1;
     char Buf[BUFL];
     char sBuf[BUFL];
