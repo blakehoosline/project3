@@ -6,9 +6,9 @@ Use the make file to create executables in each terminal
 
 In the server terminal run ./server
 
-In the client terminal run ./client
-
 The server will say its waiting, once client executable has been ran the server will acknowledge that and wait for moves by the client
+
+In the client terminal run ./client
 
 Then the game can be played by client choosing and server randomly choosing
 
