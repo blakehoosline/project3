@@ -3,12 +3,12 @@
 
 int main(int argc, char *argv[])
 {
-    // Server Related
+    // Server variables
     int err, cSocket, gameNum, received = 1;
     char Buf[BUFL];
     char sBuf[BUFL];
 
-    // Game Related Variables
+    // Game variables
     int serverPick, clientPick, numGames, winNumGames, winner, gameDone = 0;
     int sWins = 0, cWins = 0;
 
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     {
         numGames = genRandGame();
         winNumGames = (numGames / 2) + 1;
-        // Send initial instructions
+        // Send instructions
         sprintf(sBuf,
                 "This is a game of Rock, Paper, Scissors.\nWe will play the "
                 "best %d of %d\n",
@@ -35,10 +35,10 @@ int main(int argc, char *argv[])
         err = send(cSocket, sBuf, strlen(sBuf) + 1, 0);
         // Client acknowledge
         received = recv(cSocket, Buf, BUFL, 0);
-        // Each round
+        // For each round
         while (1)
         {
-            // Send Move options
+            // Move options
             sprintf(sBuf,
                     "Choose Move:\n 1) Rock\n 2) Paper\n 3) Scissors\n --> ");
             err = send(cSocket, sBuf, strlen(sBuf) + 1, 0);
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
             received = recv(cSocket, Buf, BUFL, 0);
             printf("socServerG:Game %d: %s received\n", gameNum, Buf);
 
-            // Convert client pick to integer
+            // Convert client pick to an integer
             clientPick = atoi(Buf) - 1;
-            // Generate pick for Server
+            // Generate the Server pick
             serverPick = getServerPlay();
             printf("socServerG:Game %d: Client Picked %s, Server Picked % s\n",
                    gameNum, getIdMove(clientPick), getIdMove(serverPick));
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             err = send(cSocket, sBuf, strlen(sBuf) + 1, 0);
             received = recv(cSocket, Buf, BUFL, 0);
 
-            // Determine Winner of round
+            // Determine Winner of the round
             winner = determineWinner(serverPick, clientPick);
             switch (winner)
             {
