@@ -10,6 +10,6 @@ The server will say its waiting, once client executable has been ran the server 
 
 In the client terminal run ./client
 
-Then the game can be played by client choosing and server randomly choosing
+Then the game can be played by client choosing 1, 2, or 3 and server randomly choosing
 
 The server will acknowldge each move made and so will the client, the result of each game as well as the winner will be shown.
