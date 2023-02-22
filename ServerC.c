@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
     }
 
     printf("Server is awaiting connections\n");
-    // Port bound for listening. We can fork from here
 
     while (1)
     {
