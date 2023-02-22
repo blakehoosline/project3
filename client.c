@@ -28,8 +28,6 @@ int main(int argc, char *argv[])
         perror("socClient: connect failed");
         exit(2);
     }
-    // Server connection made. Game can be played.
-
     // Receive game instructions from Server
     err = recv(cSocket, sBuf, BUFL, 0);
     if (err == -1)
@@ -38,10 +36,9 @@ int main(int argc, char *argv[])
         exit(5);
     }
     printf("%s\n", sBuf);
-    // Send blank to acknowledge
     sndString(cSocket, " ");
 
-    // RockPaperScissorGame Code
+    // Game Code
     while (received > 0)
     {
         // Start of turn
