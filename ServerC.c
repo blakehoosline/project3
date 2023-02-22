@@ -58,8 +58,6 @@ int main(int argc, char *argv[])
                 exit(8);
             }
 
-            // int offPort = SERVERPORT;
-
             char cSockString[BUFL];
             char gameNum[BUFL];
 
